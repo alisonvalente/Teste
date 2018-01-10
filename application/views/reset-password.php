@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php echo form_open('Register/ResetPassword'); ?>
         <div class="form-group">
           <label">Senha atual</label>
-          <input name="password" type="password" class="form-control" placeholder="Nome">
+          <input name="password" type="password" class="form-control" placeholder="********">
         </div>
         <div class="form-group">
           <label>Nova senha</label>

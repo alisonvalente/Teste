@@ -13,8 +13,9 @@ Class PostDao extends CI_Model
      */
     public function fetch()
     {
-    	$this->db->select('Post.*');
+    	$this->db->select('Post.*, User.name usrName');
 		$this->db->from('Post');
+		$this->db->join('User', 'Post.usrId = User.id');
 		$this->db->order_by('id', 'desc');
 
 		$query = $this->db->get();
@@ -27,6 +28,7 @@ Class PostDao extends CI_Model
 				"title" 	  => $row->title,
 				"description" => $row->description,
 				"usrId" 	  => $row->usrId,
+				"usrName" 	  => $row->usrName,
 			];
 		}
 

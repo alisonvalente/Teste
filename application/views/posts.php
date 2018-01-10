@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
       <?php include("nav.php"); ?>
       <main role="main">
+        <h1>Posts</h1>
         <?php if ($this->session->flashdata('message')) { ?>
           <div class='alert alert-<?=$this->session->flashdata("type");?>' role="alert">
             <?=$this->session->flashdata('message');?>
@@ -26,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="card border-secondary mb-3">
               <div class="card-header"><?=$post['title']?></div>
               <div class="card-body text-secondary">
+                <h6 class="card-subtitle mb-2 text-muted">Escrito por: <?=$post['usrName']?></h6>
                 <p class="card-text"><?=$post['description']?></p>
                 <?php if ($post['usrId'] == $this->session->userdata('logged_in')['user_id']) { ?>
                   <?php echo anchor('Posts/Edit/'.$post["id"], 'Editar', 'class="card-link"') ?>

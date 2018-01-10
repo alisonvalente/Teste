@@ -47,8 +47,8 @@ class Register extends CI_Controller {
         //validation
         $this->form_validation->set_rules('password', 'Senha atual', 'trim|required|callback_check_database'
         );
-        $this->form_validation->set_rules('newpassword', 'Senha', 'trim|required');
-        $this->form_validation->set_rules('passconf', 'Confirmação de Senha', 'trim|required|matches[newpassword]'
+        $this->form_validation->set_rules('newpassword', 'Nova senha', 'trim|required');
+        $this->form_validation->set_rules('passconf', 'Confirmação da nova senha', 'trim|required|matches[newpassword]'
          );
 
         if(TRUE === $this->form_validation->run())
