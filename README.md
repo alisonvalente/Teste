@@ -1,7 +1,7 @@
 Modelo de Teste
 ===============
 
-Um sistema básico de login e cadastro de conteúdo utilizando Code Igniter Framework e bootstrap. Como base de dados escolhí o sqlite para evitar muitas configurações.
+Um sistema básico de login e cadastro de posts utilizando Code Igniter e bootstrap. Como base de dados escolhí o sqlite para evitar muitas configurações.
 
 Como instalar o projeto
 -----------------------
@@ -13,4 +13,6 @@ Como instalar o projeto
 4. Abrir o arquivo `config.php` no diretório `application/config`
 E editar a url base do seu servidor, por exemplo:
 	`$config['base_url'] = 'http://localhost/Teste/';`
-5. Acesse a url e Pronto!
+5. Dê permissões de escrita no diretório do sqlite, por exemplo:
+	`chmod -R 777 application/database`
+6. Acesse a url e Pronto!

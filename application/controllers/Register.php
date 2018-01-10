@@ -11,7 +11,7 @@ class Register extends CI_Controller {
 
     public function index()
     {
-
+        //validation
         $this->form_validation->set_rules('name', 'Nome', 'trim|required|min_length[3]|max_length[20]'
         );
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
@@ -28,6 +28,7 @@ class Register extends CI_Controller {
                 do_hash($this->input->post('password'))
             );
 
+            //insert
             $this->userdao->insert($user);
             $this->session->set_flashdata([
                 'type'    => 'success',
@@ -43,7 +44,7 @@ class Register extends CI_Controller {
     public function resetpassword()
     {
         check_session();
-
+        //validation
         $this->form_validation->set_rules('password', 'Senha atual', 'trim|required|callback_check_database'
         );
         $this->form_validation->set_rules('newpassword', 'Senha', 'trim|required');
@@ -54,6 +55,8 @@ class Register extends CI_Controller {
         {
             $user = $this->get_user();
             $user->setPassword(do_hash($this->input->post('newpassword')));
+
+            //update
             $this->userdao->update($user);
             $this->session->set_flashdata([
                 'type'    => 'success',

@@ -43,24 +43,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
       <script>
         $(function () {
-        $('.open').on("click", function (e) {
-            var link = this;
+          $('.open').on("click", function (e) {
+              var link = this;
 
-            e.preventDefault();
+              e.preventDefault();
 
-            $('.unique').dialog({
-                buttons: {
-                    "Sim": function () {
-                      $(this).dialog("close");
-                        window.location.href = $(link).attr("href");
-                    },
-                    "Cancel": function () {
+              $('.unique').dialog({
+                  buttons: {
+                      "Sim": function () {
                         $(this).dialog("close");
-                    }
-                }
-            });
+                          window.location.href = $(link).attr("href");
+                      },
+                      "Cancel": function () {
+                          $(this).dialog("close");
+                      }
+                  }
+              });
+          });
         });
-    });
       </script>
     </div>
   </body>

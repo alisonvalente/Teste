@@ -27,12 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <input name="password" type="password" class="form-control" id="inputPassword" placeholder="********">
         </div>
         <button type="submit" class="btn btn-primary">Entrar</button>
-
       </form>
       <br><a href="Register">Registrar</a>
       </main>
-
-      
       <?php include("footer.php"); ?>
     </div>
   </body>

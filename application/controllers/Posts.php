@@ -9,7 +9,7 @@ class Posts extends CI_Controller
         check_session();
         $this->load->model('post','',TRUE);
         $this->load->model('postdao','',TRUE);
-    	//force_ssl();
+    	//force_ssl();#comentado para testar local
     }
 
 	public function index()
@@ -20,6 +20,7 @@ class Posts extends CI_Controller
 	}
     public function create()
     {
+        //valitation
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('description', 'Descrição', 'required');
 
@@ -32,6 +33,7 @@ class Posts extends CI_Controller
                 $this->input->post('description')
             );
 
+            //insert
             $this->postdao->insert($post);
             $this->session->set_flashdata([
                 'type'    => 'success',
@@ -46,6 +48,7 @@ class Posts extends CI_Controller
 
     public function edit($id)
     {
+        //validation
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('description', 'Descrição', 'required');
 
@@ -59,6 +62,7 @@ class Posts extends CI_Controller
             $post->setTitle($this->input->post('title'));
             $post->setDescription($this->input->post('description'));
 
+            //update
             $this->postdao->update($post);
             $this->session->set_flashdata([
                 'type'    => 'success',
@@ -83,6 +87,7 @@ class Posts extends CI_Controller
                 return false;
         }
 
+        //delete
         $this->postdao->delete($id);
 
         redirect("Posts");
